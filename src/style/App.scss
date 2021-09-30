@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header,
+footer {
+  height: 10vh;
+  display: flex;
+}
+.card-list {
+  flex: 1;
+}
