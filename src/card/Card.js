@@ -2,6 +2,8 @@ import React from 'react';
 import './Card.scss';
 import axios from 'axios';
 import Modal from 'modal/Modal';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +29,16 @@ class Card extends React.Component {
     const editedCharacter = { ...this.state.modalData, stars: starCount };
     const newData = [...filteredCharacter, editedCharacter];
     this.setState({ characters: newData, showModal: false });
+    toast('😎  Wow data edited!', {
+      position: 'bottom-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark',
+    });
   };
 
   render() {
