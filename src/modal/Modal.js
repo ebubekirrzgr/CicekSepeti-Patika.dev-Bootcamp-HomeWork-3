@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Modal.scss';
 import ReactModal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
@@ -11,9 +11,9 @@ function Modal(props) {
   const saveBtn = (characterId, fakeStar) => {
     handleSave(characterId, fakeStar);
   };
-  const handleStars = (id) => {
-    return id;
-  };
+  useEffect(() => {
+    setFakeStar(props.data.stars);
+  }, [props.data.stars]);
   return (
     <div>
       <ReactModal
@@ -35,15 +35,7 @@ function Modal(props) {
           defaultValue={props.data?.name}
         />
         <br />
-        <Star
-          characterId={props.data.id}
-          handleSave={handleSave}
-          handleStars={handleStars}
-          popi={props.data?.stars}
-          saveBtn={saveBtn}
-          fakeStar={fakeStar}
-          setFakeStar={setFakeStar}
-        />
+        <Star fakeStar={fakeStar} setFakeStar={setFakeStar} />
         <div className="saveBtn">
           <button onClick={saveBtn} className="save">
             Save

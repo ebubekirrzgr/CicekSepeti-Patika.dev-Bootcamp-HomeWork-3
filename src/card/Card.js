@@ -32,8 +32,8 @@ class Card extends React.Component {
   render() {
     return (
       <div className="card-list">
-        {this.state.characters.map((data) => (
-          <div key={data.id} className="card">
+        {this.state.characters.map((data, index) => (
+          <div key={index} className="card">
             <div className="character-info">
               <h2>{data.name}</h2>
             </div>

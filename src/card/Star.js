@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Star.scss';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
-function Star({
-  popi,
-  handleStars,
-  handleSave,
-  characterId,
-  saveBtn,
-  setFakeStar,
-  fakeStar,
-}) {
+function Star({ setFakeStar, fakeStar }) {
   const handleClick = (starCount) => {
     setFakeStar(starCount);
-    console.log(fakeStar);
-    console.log('ercu');
   };
 
   const renderStars = (fakeStar) => {
