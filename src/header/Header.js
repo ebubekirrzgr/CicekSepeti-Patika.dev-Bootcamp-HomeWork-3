@@ -14,10 +14,10 @@ class Header extends React.Component {
         <div className="logo">
           <img src={logo} alt="logo" />
         </div>
-        <div className="search-bar">
+        {/* <div className="search-bar">
           <input type="text" placeholder="Search..." />
           <div className="search"></div>
-        </div>
+        </div> */}
         <div className="profile">
           <img
             className="ebu-img"

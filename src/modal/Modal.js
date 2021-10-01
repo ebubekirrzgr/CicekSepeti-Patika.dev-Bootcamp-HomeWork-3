@@ -6,10 +6,10 @@ import Star from 'card/Star';
 
 function Modal(props) {
   const { handleSave } = props;
-  console.log(props.data);
   const [fakeStar, setFakeStar] = useState(props.data.stars);
-  const saveBtn = (characterId, fakeStar) => {
+  const saveBtn = (characterId) => {
     handleSave(characterId, fakeStar);
+    props.closeModal();
   };
   useEffect(() => {
     setFakeStar(props.data.stars);
@@ -20,11 +20,11 @@ function Modal(props) {
         ariaHideApp={false}
         isOpen={props.showModal}
         contentLabel="onRequestClose Example"
-        onRequestClose={props.toggleModal}
+        onRequestClose={props.closeModal}
         className="Modal"
         overlayClassName="Overlay"
       >
-        <button className="closeBtn" onClick={props.toggleModal}>
+        <button className="closeBtn" onClick={props.closeModal}>
           <FaWindowClose />
         </button>
         <br />
@@ -37,7 +37,7 @@ function Modal(props) {
         <br />
         <Star fakeStar={fakeStar} setFakeStar={setFakeStar} />
         <div className="saveBtn">
-          <button onClick={saveBtn} className="save">
+          <button onClick={() => saveBtn(props.data.id)} className="save">
             Save
           </button>
         </div>

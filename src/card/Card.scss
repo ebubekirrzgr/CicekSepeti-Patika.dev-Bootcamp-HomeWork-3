@@ -25,6 +25,9 @@
     bottom: 0;
     z-index: 99;
   }
+  .cardStars {
+    display: block;
+  }
 }
 
 .card-img {
@@ -162,6 +165,7 @@ $measurement: 0.125em;
     &.edit {
       background: none;
       border-color: black;
+      width: 110px;
       &:before,
       &:after {
         transition: all 0.175s ease-in-out;
@@ -207,4 +211,10 @@ $measurement: 0.125em;
       }
     }
   }
+}
+.cardStars {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 150px;
 }

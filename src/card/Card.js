@@ -4,6 +4,7 @@ import axios from 'axios';
 import Modal from 'modal/Modal';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CardStars from 'card/CardStars';
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -36,12 +37,18 @@ class Card extends React.Component {
     });
   };
   handleSave = (id, starCount) => {
-    const filteredCharacter = this.state.characters.filter(
-      (item) => item.id !== id
-    );
-    const editedCharacter = { ...this.state.modalData, stars: starCount };
-    const newData = [...filteredCharacter, editedCharacter];
-    this.setState({ characters: newData, showModal: false });
+    // TODO:ERCU REISE SORULACAK
+    // const filteredCharacter = this.state.characters.filter(
+    //   (item) => item.id !== id
+    // );
+    // const editedCharacter = { ...this.state.modalData, stars: starCount };
+    // const newData = [...filteredCharacter, editedCharacter];
+    // this.setState({ characters: newData, showModal: false });
+    const copyData = this.state.characters;
+    const copyIndex = this.state.characters.findIndex((item) => item.id === id);
+    copyData[copyIndex].stars = starCount;
+    this.setState({ characters: copyData });
+
     toast('😎  Wow data edited!', {
       position: 'bottom-right',
       autoClose: 3000,
@@ -61,6 +68,9 @@ class Card extends React.Component {
           <div key={index} className="card">
             <div className="character-info">
               <h2>{data.name}</h2>
+              <div className="cardStars">
+                <CardStars fakeStar={data.stars} />
+              </div>
             </div>
             <div className="card-img">
               <img src={data.img} alt={data.name} />
@@ -86,7 +96,7 @@ class Card extends React.Component {
         <Modal
           showModal={this.state.showModal}
           data={this.state.modalData}
-          toggleModal={this.closeModal}
+          closeModal={this.closeModal}
           handleSave={this.handleSave}
         />
       </div>
