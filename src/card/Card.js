@@ -15,10 +15,18 @@ class Card extends React.Component {
       });
   }
   openModal = (data) => {
-    this.setState({ showModal: !this.state.showModal, modalData: data });
+    this.setState({ showModal: true, modalData: data });
   };
   closeModal = () => {
     this.setState({ showModal: false, modalData: {} });
+  };
+  handleSave = (id, starCount) => {
+    const filteredCharacter = this.state.characters.filter(
+      (item) => item.id !== id
+    );
+    const editedCharacter = { ...this.state.modalData, stars: starCount };
+    const newData = [...filteredCharacter, editedCharacter];
+    this.setState({ characters: newData, showModal: false });
   };
 
   render() {
@@ -33,7 +41,12 @@ class Card extends React.Component {
               <img src={data.img} alt={data.name} />
             </div>
             <div className="card-buttons">
-              <button onClick={() => this.openModal(data)} className="edit">
+              <button
+                onClick={() => {
+                  this.openModal(data);
+                }}
+                className="edit"
+              >
                 Edit
               </button>
               <button className="delete">Delete</button>
@@ -44,6 +57,7 @@ class Card extends React.Component {
           showModal={this.state.showModal}
           data={this.state.modalData}
           toggleModal={this.closeModal}
+          handleSave={this.handleSave}
         />
       </div>
     );
