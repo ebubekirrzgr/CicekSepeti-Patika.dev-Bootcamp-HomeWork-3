@@ -22,6 +22,19 @@ class Card extends React.Component {
   closeModal = () => {
     this.setState({ showModal: false, modalData: {} });
   };
+  handleDelete = (id) => {
+    const remaningData = this.state.characters.filter((item) => item.id !== id);
+    this.setState({ characters: remaningData });
+    toast.error(' 🤬 Deletered', {
+      position: 'bottom-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   handleSave = (id, starCount) => {
     const filteredCharacter = this.state.characters.filter(
       (item) => item.id !== id
@@ -61,7 +74,12 @@ class Card extends React.Component {
               >
                 Edit
               </button>
-              <button className="delete">Delete</button>
+              <button
+                onClick={() => this.handleDelete(data.id)}
+                className="delete"
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
