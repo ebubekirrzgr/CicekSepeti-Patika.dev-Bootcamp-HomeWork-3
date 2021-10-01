@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import '../style/variables';
 
 .card-list {
   display: grid;
@@ -18,6 +19,12 @@
 
 .card:hover {
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+  .card-buttons {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    z-index: 99;
+  }
 }
 
 .card-img {
@@ -36,7 +43,7 @@
 }
 
 .card:hover .card-img {
-  transform: translateY(100px);
+  transform: translateY(120px);
 }
 
 .card-img > img {
@@ -64,7 +71,7 @@
   list-style: none;
 }
 
-.stars > li > a {
+.stars > li > i {
   display: block;
   height: 30px;
   width: 30px;
@@ -78,45 +85,42 @@
   transition: all 0.3s ease-out;
 }
 
-.card:hover > .stars > li > a {
+.card:hover > .stars > li > i {
   transform: translateY(0);
   opacity: 1;
 }
 
-.stars > li > a > .fa {
+.stars > li > i > .fa {
   font-size: 14px;
   line-height: 30px;
   transition: transform 0.3s ease-out;
 }
 
-.stars > li > a:hover > .fa {
+.stars > li > i:hover > .fa {
   transform: rotateY(360deg);
 }
 
-.card:hover .stars li:nth-child(1) a {
+.card:hover .stars li:nth-child(1) i {
   transition-delay: 0s;
 }
 
-.card:hover .stars li:nth-child(2) a {
+.card:hover .stars li:nth-child(2) i {
   transition-delay: 0.1s;
 }
 
-.card:hover .stars li:nth-child(3) a {
+.card:hover .stars li:nth-child(3) i {
   transition-delay: 0.2s;
 }
 
-.card:hover .stars li:nth-child(4) a {
+.card:hover .stars li:nth-child(4) i {
   transition-delay: 0.3s;
 }
 
-.card:hover .stars li:nth-child(5) a {
+.card:hover .stars li:nth-child(5) i {
   transition-delay: 0.4s;
 }
 
 .character-info {
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #fff;
   height: 100px;
   width: 100%;
@@ -133,4 +137,74 @@
 .character-info > span {
   color: #262626;
   font-size: 16px;
+}
+
+/* Buttons Scss*/
+$measurement: 0.125em;
+
+.card-buttons {
+  button {
+    background: white;
+    border: $measurement solid $dark-red;
+    cursor: pointer;
+    font: 600 1.5rem/1.25 'Montserrat', sans-serif;
+    letter-spacing: $measurement;
+    margin: 0.5rem;
+    padding: 0.5em 0.75em;
+    position: relative;
+    text-transform: uppercase;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      transition: all 0.125s ease-in-out;
+    }
+    &.edit {
+      background: none;
+      border-color: black;
+      &:before,
+      &:after {
+        transition: all 0.175s ease-in-out;
+      }
+      &:before {
+        background: black;
+        border: 0px dashed black;
+        left: $measurement * -1;
+        top: $measurement * -1;
+        right: $measurement * -1;
+        bottom: $measurement * -1;
+        z-index: -1;
+      }
+      &:hover:before,
+      &:focus:before {
+        background: white;
+        border-width: $measurement;
+      }
+      &:after {
+        background: white;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -1;
+      }
+    }
+    &.delete {
+      color: $soft-red;
+      &:after {
+        border: $measurement dashed $dark-red;
+        bottom: $measurement * -1;
+        left: $measurement * -1;
+        right: $measurement * -1;
+        top: $measurement * -1;
+      }
+      &:hover:after,
+      &:focus:after {
+        bottom: $measurement;
+        left: $measurement;
+        right: $measurement;
+        top: $measurement;
+      }
+    }
+  }
 }

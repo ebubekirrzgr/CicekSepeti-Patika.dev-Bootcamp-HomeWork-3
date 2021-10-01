@@ -1,0 +1,143 @@
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+@import '../style/variables';
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+}
+.Modal {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  right: 30%;
+  bottom: 30%;
+  background-color: papayawhip;
+  border-radius: 0.8rem;
+  padding: 30px 40px;
+}
+.closeBtn {
+  border: none;
+  background: none;
+  right: 10px;
+  top: 10px;
+  position: absolute;
+  font-size: 35px;
+  color: $ercu;
+}
+.characterName {
+  width: 100%;
+  padding: 7px 14px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 25px;
+  border-radius: 0.5em;
+  border: 2px solid $ercu;
+  margin-top: 20px;
+}
+.save {
+  background: $dark-red;
+  width: 150px;
+  height: 50px;
+  font-size: 35px;
+  color: wheat;
+  border-radius: 0.5em;
+}
+.saveBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  button {
+    width: 50%;
+  }
+}
+.ReactModal__Content {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+}
+// *,
+// *:before,
+// *:after {
+//   box-sizing: border-box;
+// }
+
+// $measurement: 0.125em;
+
+// .buttons {
+//   margin-left: -0.5rem;
+//   margin-right: -0.5rem;
+//   bottom: 0;
+//   position: absolute;
+
+//   button {
+//     background: white;
+//     border: $measurement solid $dark-red;
+//     cursor: pointer;
+//     font: 600 1.5rem/1.25 'Montserrat', sans-serif;
+//     letter-spacing: $measurement;
+//     margin: 0.5rem;
+//     padding: 0.5em 0.75em;
+//     position: relative;
+//     text-transform: uppercase;
+//     &:before,
+//     &:after {
+//       content: '';
+//       position: absolute;
+//       transition: all 0.125s ease-in-out;
+//     }
+//     &.edit {
+//       background: none;
+//       border-color: black;
+//       &:before,
+//       &:after {
+//         transition: all 0.175s ease-in-out;
+//       }
+//       &:before {
+//         background: black;
+//         border: 0px dashed black;
+//         left: $measurement * -1;
+//         top: $measurement * -1;
+//         right: $measurement * -1;
+//         bottom: $measurement * -1;
+//         z-index: -1;
+//       }
+//       &:hover:before,
+//       &:focus:before {
+//         background: white;
+//         border-width: $measurement;
+//       }
+//       &:after {
+//         background: white;
+//         bottom: 0;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         z-index: -1;
+//       }
+//     }
+//     &.delete {
+//       color: $soft-red;
+//       &:after {
+//         border: $measurement dashed $dark-red;
+//         bottom: $measurement * -1;
+//         left: $measurement * -1;
+//         right: $measurement * -1;
+//         top: $measurement * -1;
+//       }
+//       &:hover:after,
+//       &:focus:after {
+//         bottom: $measurement;
+//         left: $measurement;
+//         right: $measurement;
+//         top: $measurement;
+//       }
+//     }
+//   }
+// }

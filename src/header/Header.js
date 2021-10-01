@@ -16,7 +16,7 @@ class Header extends React.Component {
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
-          <div class="search"></div>
+          <div className="search"></div>
         </div>
         <div className="profile">
           <img

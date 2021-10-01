@@ -1,0 +1,58 @@
+@import './../style/variables';
+
+input[type='radio'] {
+  display: none;
+}
+label {
+  cursor: pointer;
+  font-size: 40px;
+  color: $queen-pink;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 60px;
+  text-align: center;
+  float: left;
+
+  &:hover {
+    font-size: 50px;
+    color: $queen-pink-2;
+  }
+
+  &:before {
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    margin-top: 0;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    content: '\f005';
+  }
+}
+input:checked + label ~ label {
+  &:before {
+    content: '\f006';
+  }
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  &:hover {
+    label {
+      &:before {
+        content: '\f005';
+      }
+      &:hover {
+        & ~ label:before {
+          content: '\f006';
+        }
+      }
+    }
+  }
+}
